@@ -17,11 +17,9 @@ public class AddToCartPage extends TestBase {
     WebElement searchButton;
     @FindBy(id = "searchTerm")
     WebElement enterSearch;
-    @FindBy(linkText = "Men's Raven Lightweight Zip Up Bomber Jacket")
-    WebElement ravenJacket;
-    @FindBy(xpath = "//div[@class='size-1740250-00-A product__container__details__size__items__item color__key active']/label")
-    WebElement sizeOfJacket;
-    @FindBy(xpath = "//input[@class=\"btn-purchasable tds-btn tds-btn--primary tds-btn--width-full product__container__details__submit__buy submit__buy--desktop\"]")
+    @FindBy(linkText = "Key Card")
+    WebElement keyCard;
+    @FindBy(xpath = "//main//section/div/div[2]/div/div[2]/section/div[@class='product__container__details__buynow active']")
     WebElement addToCart;
     @FindBy(xpath = "//button[@class='tds-btn tds-btn--secondary']")
     WebElement goToCart;
@@ -34,13 +32,13 @@ public class AddToCartPage extends TestBase {
         ut.goTo(baseURL);
     }
 
-    public void buyAJacket() throws InterruptedException {
+    public void goToCheckOut() throws InterruptedException {
         shopButton.click();
         searchButton.click();
-        enterSearch.sendKeys("mens bomber" + "\n");
+        enterSearch.sendKeys("card" + "\n");
         JavascriptExecutor jse = (JavascriptExecutor)driver;
-        jse.executeScript("arguments[0].click()", ravenJacket);
-        ut.clickElement(sizeOfJacket);
+        jse.executeScript("arguments[0].click()", keyCard);
+        ut.waitForElement(addToCart);
         addToCart.click();
         Thread.sleep(2000);
         goToCart.click();

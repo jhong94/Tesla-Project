@@ -8,12 +8,12 @@ import org.testng.annotations.Test;
 public class AddToCartTest extends TestBase {
 
     @Test()
-    public void addItemToCartTest() throws InterruptedException {
+    public void purchaseAnItem() throws InterruptedException {
         LoginTeslaPage page = new LoginTeslaPage();
         AddToCartPage cart = new AddToCartPage();
         cart.goToTesla();
         page.enterLogin();
-        cart.buyAJacket();
+        cart.goToCheckOut();
         Thread.sleep(2000);
     }
 }

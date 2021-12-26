@@ -17,6 +17,6 @@ public class TestBase {
 
     @AfterClass
     public void quitSetup(){
-        driver.quit();
+//        driver.quit();
     }
 }
